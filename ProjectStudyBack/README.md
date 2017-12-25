@@ -1,9 +1,21 @@
 # Prerequisites
-- Node.js 8+
+- JAVA
+
+- JSP
+
+- Database
+
+- Tomcat
 
 # Skill stack
-- Vue.js
-- Webpack
-- Sass/scss
-- HTML5
-- ES6 or ES7
+- Spring Framework (Legacy)
+
+- Mybatis
+
+- Lombok
+
+- Mysql (Workbench)
+
+- Tomcat server(7.0)
+
+- Maven
