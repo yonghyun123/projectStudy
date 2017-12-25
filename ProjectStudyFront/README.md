@@ -56,3 +56,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 - Should we run 'npm install' for you after the project has been reated?: npm
 
+# Package
+- npm install node-sass sass-loader //extend for node-sass 
