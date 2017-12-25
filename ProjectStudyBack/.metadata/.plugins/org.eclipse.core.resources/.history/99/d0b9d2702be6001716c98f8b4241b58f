@@ -1,0 +1,6 @@
+package com.yonghyun.projectStudy.controller;
+
+@Controller
+public class EmployeeController {
+
+}

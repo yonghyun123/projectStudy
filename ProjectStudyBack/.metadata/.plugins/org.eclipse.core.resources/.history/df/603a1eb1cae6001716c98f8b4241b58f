@@ -1,0 +1,9 @@
+package com.yonghyun.projectStudy.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.yonghyun.projectStudy.domain.Employee;
+
+public interface EmployeeService {
+	Employee getEmployee(int id);
+}

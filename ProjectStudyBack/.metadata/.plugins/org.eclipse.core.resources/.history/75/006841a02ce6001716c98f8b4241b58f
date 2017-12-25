@@ -1,0 +1,5 @@
+package com.yonghyun.projectStudy.service;
+
+public interface EmployeeService {
+	Employee getEmployee(int id);
+}

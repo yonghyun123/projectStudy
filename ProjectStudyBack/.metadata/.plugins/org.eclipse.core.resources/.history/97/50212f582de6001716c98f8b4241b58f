@@ -1,0 +1,15 @@
+package com.yonghyun.projectStudy.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class EmployeeDao {
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	public Employee getEmployee(int id){
+		
+	}
+}

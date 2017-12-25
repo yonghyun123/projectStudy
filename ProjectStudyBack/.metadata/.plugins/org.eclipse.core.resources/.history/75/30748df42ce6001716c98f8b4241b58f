@@ -1,0 +1,5 @@
+package com.yonghyun.projectStudy.dao;
+
+public class EmployeeDao {
+
+}
