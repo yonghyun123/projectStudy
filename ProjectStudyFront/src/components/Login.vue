@@ -47,10 +47,10 @@ export default {
       })
       .then((res) => {
         if (res.data) {
-          console.log(res);
+          // console.log(res);
           this.$router.push({ path: 'Main' });
         } else {
-          console.log('null');
+          // console.log('null');
           this.alert = true;
         }
       });

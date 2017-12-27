@@ -7,11 +7,13 @@ import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';
 import VueGoodTable from 'vue-good-table'; // about vue table by yonghyun
 import VueFormGenerator from 'vue-form-generator';
+import 'bootstrap'; // bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css'; // bootstrap
 
 import App from './App'; // load App
 import router from './router'; // about router
 import './styles/common.scss'; // about style
-import 'expose-loader?$!expose-loader?jQuery!jquery';
+
 
 Vue.config.productionTip = false;
 

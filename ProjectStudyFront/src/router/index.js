@@ -3,8 +3,8 @@ import Router from 'vue-router';
 import VueGoodTable from 'vue-good-table';
 
 // components
-const Login = () => import('../components/Login');
 const Main = () => import('../components/Main');
+const Login = () => import('../components/Login');
 const Signup = () => import('../components/Signup');
 
 Vue.use(Router);
