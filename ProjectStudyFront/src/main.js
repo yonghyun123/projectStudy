@@ -11,7 +11,7 @@ import VueFormGenerator from 'vue-form-generator';
 import App from './App'; // load App
 import router from './router'; // about router
 import './styles/common.scss'; // about style
-
+import 'expose-loader?$!expose-loader?jQuery!jquery';
 
 Vue.config.productionTip = false;
 

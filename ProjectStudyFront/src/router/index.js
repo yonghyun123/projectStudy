@@ -13,13 +13,13 @@ Vue.use(VueGoodTable);
 const routes = [
   {
     path: '/',
-    name: 'Login',
-    component: Login,
-  },
-  {
-    path: '/main',
     name: 'Main',
     component: Main,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
   },
   {
     path: '/signup',
