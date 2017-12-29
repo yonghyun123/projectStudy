@@ -10,10 +10,13 @@ import VueGoodTable from 'vue-good-table'; // about vue table by yonghyun
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import BootstrapVue from 'bootstrap-vue';
+import VueFormGenerator from 'vue-form-generator';
+import 'vue-form-generator/dist/vfg.css';
 
 import App from './App'; // load App
 import router from './router'; // about router
 import './styles/common.scss'; // about style
+
 
 Vue.config.productionTip = false;
 
@@ -21,6 +24,7 @@ Vue.use(VueAxios, axios);
 Vue.use(VueMaterial);
 Vue.use(VueGoodTable);
 Vue.use(BootstrapVue);
+Vue.use(VueFormGenerator);
 
 /* eslint-disable no-new */
 new Vue({
