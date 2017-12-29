@@ -41,7 +41,7 @@ export default {
   methods: {
     login() {
       // this.$router.push({ path: 'Main' });
-      this.axios.post('http://localhost:8080/app/login/', {
+      this.axios.post('http://localhost:8080/app/signin/', {
         empEmail: this.id,
         pass: this.password,
       })
@@ -66,7 +66,6 @@ export default {
 <style lang="scss" module>
 #homeContainer {
   max-width: 560px; // 가운데 정렬을 위하여
-
   margin-top: 60px;
   margin-right: auto;
   margin-bottom: 60px;

@@ -6,20 +6,21 @@ import VueAxios from 'vue-axios';
 import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';
 import VueGoodTable from 'vue-good-table'; // about vue table by yonghyun
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import BootstrapVue from 'bootstrap-vue';
 
 import App from './App'; // load App
 import router from './router'; // about router
 import './styles/common.scss'; // about style
-
 
 Vue.config.productionTip = false;
 
 Vue.use(VueAxios, axios);
 Vue.use(VueMaterial);
 Vue.use(VueGoodTable);
-
+Vue.use(BootstrapVue);
 
 /* eslint-disable no-new */
 new Vue({
