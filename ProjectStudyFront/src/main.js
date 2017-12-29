@@ -6,9 +6,8 @@ import VueAxios from 'vue-axios';
 import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';
 import VueGoodTable from 'vue-good-table'; // about vue table by yonghyun
-import VueFormGenerator from 'vue-form-generator';
-import 'bootstrap'; // bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css'; // bootstrap
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App'; // load App
 import router from './router'; // about router
@@ -20,7 +19,7 @@ Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 Vue.use(VueMaterial);
 Vue.use(VueGoodTable);
-Vue.use(VueFormGenerator);
+
 
 /* eslint-disable no-new */
 new Vue({
