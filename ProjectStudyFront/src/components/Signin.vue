@@ -81,7 +81,6 @@ header {
     font-weight: bold;
   }
 }
-
 main {
   margin-bottom: 60px;
 }
