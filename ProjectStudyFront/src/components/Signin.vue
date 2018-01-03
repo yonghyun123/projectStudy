@@ -31,7 +31,7 @@ export default {
   name: 'Login',
   data() {
     return {
-      title: 'Database Design Project',
+      title: 'Project Study 스터디로 공부하자',
       id: 'model9960@naver.com',
       password: '9960',
       alert: false, // 로그인 실패 시

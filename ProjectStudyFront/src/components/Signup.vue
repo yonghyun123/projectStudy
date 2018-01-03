@@ -10,7 +10,7 @@
           <div class="md-layout-row md-layout-wrap md-gutter">
             <div class="md-flex md-flex-small-100">
               <md-field :class="getValidationClass('name')">
-                <label for="first-name">이름</label>
+                <label for="name">이름</label>
                 <md-input name="name" id="name" autocomplete="given-name" v-model="form.name" :disabled="sending" />
                 <span class="md-error" v-if="!$v.form.name.required">The name is required</span>
                 <span class="md-error" v-else-if="!$v.form.name.minlength">Invalid name</span>
@@ -90,7 +90,7 @@
 
         // Instead of this timeout, here you can call your API
         window.setTimeout(() => {
-          this.lastUser = `${this.form.name} ${this.form.lastName}`;
+          this.lastUser = `${this.form.name} `;
           this.userSaved = true;
           this.sending = false;
           this.clearForm();
@@ -108,7 +108,6 @@
 </script>
 
 <style lang="scss" scoped>
-
   .md-progress-bar {
     position: absolute;
     top: 0;

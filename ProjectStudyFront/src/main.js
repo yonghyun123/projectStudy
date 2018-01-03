@@ -12,6 +12,12 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import BootstrapVue from 'bootstrap-vue';
 import VueFormGenerator from 'vue-form-generator';
 import 'vue-form-generator/dist/vfg.css';
+import { validationMixin } from 'vuelidate';
+import {
+  required,
+  email,
+  minLength,
+} from 'vuelidate/lib/validators';
 
 import App from './App'; // load App
 import router from './router'; // about router
@@ -25,6 +31,10 @@ Vue.use(VueMaterial);
 Vue.use(VueGoodTable);
 Vue.use(BootstrapVue);
 Vue.use(VueFormGenerator);
+Vue.use(validationMixin);
+Vue.use(required);
+Vue.use(email);
+Vue.use(minLength);
 
 /* eslint-disable no-new */
 new Vue({
