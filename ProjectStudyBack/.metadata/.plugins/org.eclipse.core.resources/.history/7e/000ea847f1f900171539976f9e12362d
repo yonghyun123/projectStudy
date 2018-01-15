@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yonghyun.projectStudy.mapper.UsersMapper">
+   <select id="getUsers" parameterType="com.yonghyun.projectStudy.domain.Users" resultType="com.yonghyun.projectStudy.domain.Users">
+      SELECT * FROM users WHERE users_email = #{usersEmail};
+   </select>
+   
+   <insert id="signupUsers" parameterType="com.yonghyun.projectStudy.domain.Users">
+      <selectKey resultType="string" keyProperty="usersID" order="BEFORE">
+        SELECT MAX(boardID)+1 FROM board        
+  	  </selectKey> 
+   	  INSERT INTO users
+   	  values(#{usersEmail}, #{usersName}, #{usersPassword});
+   </insert>
+ </mapper>
+   

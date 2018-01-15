@@ -1,0 +1,13 @@
+package com.yonghyun.projectStudy.controller;
+
+import org.springframework.stereotype.Controller;
+
+import com.yonghyun.projectStudy.service.UsersService;
+
+@Controller
+
+public class SignupController {
+	private static logger = LoggerFactory.getLogger(SignupController.class);
+	UsersService usersService;
+	
+}

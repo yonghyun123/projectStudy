@@ -1,0 +1,16 @@
+package com.yonghyun.projectStudy.controller;
+
+import java.util.logging.Logger;
+
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+
+import com.yonghyun.projectStudy.service.UsersService;
+
+@Controller
+
+public class SignupController {
+	private static final logger = LoggerFactory.getLogger(SignupController.class);
+	UsersService usersService;
+	
+}

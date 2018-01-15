@@ -1,0 +1,31 @@
+package com.yonghyun.projectStudy.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.yonghyun.projectStudy.domain.Users;
+
+@Repository
+public class UsersDao {
+	private final String NAMESPACE = "com.yonghyun.projectStudy.mapper.UsersMapper.";
+	
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	public Users getUsers(String usersEmail){
+		return this.sqlSession.selectOne(NAMESPACE + "getUsers", usersEmail);
+	}
+	
+	public Users signupUsers(String usersName, String usersEmail, String usersPassword){
+		Users checkEmail = new Users();
+		checkEmail = getUsers(usersEmail);
+		if(checkEmail != null){
+			return checkEmail;
+		}
+		else{
+			return null;
+		}
+		
+	}
+}

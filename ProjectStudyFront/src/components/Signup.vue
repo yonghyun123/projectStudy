@@ -24,6 +24,17 @@
             <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
             <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
           </md-field>
+
+          <div class="md-layout-row md-layout-wrap md-gutter">
+            <div class="md-flex md-flex-small-100">
+              <md-field :class="getValidationClass('name')">
+                <label for="name">비밀전호</label>
+                <md-input type="password" name="password" id="password" autocomplete="given-password" v-model="form.password" :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.name.required">The Password is required</span>
+                <span class="md-error" v-else-if="!$v.form.name.minlength">Invalid Password</span>
+              </md-field>
+            </div>
+          </div>
         </md-card-content>
 
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
@@ -32,6 +43,10 @@
           <md-button type="submit" class="md-primary" :disabled="sending">Create user</md-button>
         </md-card-actions>
       </md-card>
+      <md-dialog-alert
+        :md-active.sync="alert"
+        md-content="중복된 이메일이 존재합니다."
+        md-confirm-text="확인" />            
 
       <md-snackbar :md-active.sync="userSaved">회원가입이 완료되었습니다.</md-snackbar>
     </form>
@@ -51,12 +66,14 @@
     mixins: [validationMixin],
     data: () => ({
       form: {
-        name: null,
-        email: null,
+        name: '김용현',
+        email: 'model9960@naver.com',
+        password: 'yong9960',
       },
       userSaved: false,
       sending: false,
       lastUser: null,
+      alert: false,
     }),
     validations: {
       form: {
@@ -67,6 +84,10 @@
         email: {
           required,
           email,
+        },
+        password: {
+          required,
+          minLength: minLength(2),
         },
       },
     },
@@ -90,11 +111,23 @@
 
         // Instead of this timeout, here you can call your API
         window.setTimeout(() => {
-          this.lastUser = `${this.form.name} `;
-          this.userSaved = true;
-          this.sending = false;
-          this.clearForm();
-        }, 1500);
+
+        }, 1000);
+        this.axios.post('http://localhost:8081/projectStudy/signup/', {
+          usersName: this.form.name,
+          usersEmail: this.form.email,
+          usersPassword: this.form.password,
+        })
+        .then((res) => {
+          if (res.data) {
+            this.clearForm();
+            this.alert = true;
+          } else {
+            this.lastUser = `${this.form.name} `;
+            this.userSaved = true;
+          }
+        });
+        this.sending = false;
       },
       validateUser() {
         this.$v.$touch();
