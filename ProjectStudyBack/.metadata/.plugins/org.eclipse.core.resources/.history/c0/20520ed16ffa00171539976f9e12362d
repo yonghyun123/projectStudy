@@ -30,12 +30,6 @@ public class UsersDao {
 			this.sqlSession.insert(NAMESPACE + "signupUsers", user);
 			return null;
 		}
-	}
-	
-	public Users signinUsers(String usersEmail, String usersPassword){
-		Users user = new Users();
-		user.setUsersEmail(usersEmail);
-		user.setUsersPassword(usersPassword);
-		return this.sqlSession.selectOne(NAMESPACE + "signinUsers", user);
+		
 	}
 }

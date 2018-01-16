@@ -21,19 +21,20 @@ public class UsersServiceImpl implements UsersService {
 		// TODO Auto-generated method stub
 		return usersDao.getUsers(usersEmail);
 	}
-
+	/*
+	public Users signupUsers(String usersName, String usersEmail, String usersPassword) {
+		// TODO Auto-generated method stub
+		logger.info("UsersServcice ===> in"+usersName);
+		logger.info("UsersServcice ===> in"+usersEmail);
+		logger.info("UsersServcice ===> in"+usersPassword);
+		return usersDao.signupUsers(usersName, usersEmail, usersPassword);
+	}
+	*/
 	public Users signupUsers(Users users){
 		logger.info("UsersServcice ===> in"+users.getUsersEmail());
 		logger.info("UsersServcice ===> in"+users.getUsersName());
 		logger.info("UsersServcice ===> in"+users.getUsersPassword());
 		return usersDao.signupUsers(users);
-	}
-
-	@Override
-	public Users signinUsers(String usersEmail, String usersPassword) {
-		logger.info("UsersServcice ===> in"+usersEmail);
-		logger.info("UsersServcice ===> in"+usersPassword);
-		return usersDao.signinUsers(usersEmail, usersPassword);
 	}
 
 	

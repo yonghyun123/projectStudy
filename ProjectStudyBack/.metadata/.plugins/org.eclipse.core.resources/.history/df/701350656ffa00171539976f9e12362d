@@ -33,7 +33,7 @@ public class UsersServiceImpl implements UsersService {
 	public Users signinUsers(String usersEmail, String usersPassword) {
 		logger.info("UsersServcice ===> in"+usersEmail);
 		logger.info("UsersServcice ===> in"+usersPassword);
-		return usersDao.signinUsers(usersEmail, usersPassword);
+		return null;
 	}
 
 	

@@ -30,10 +30,10 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public Users signinUsers(String usersEmail, String usersPassword) {
-		logger.info("UsersServcice ===> in"+usersEmail);
-		logger.info("UsersServcice ===> in"+usersPassword);
-		return usersDao.signinUsers(usersEmail, usersPassword);
+	public Users signinUsers(Users users) {
+		logger.info("UsersServcice ===> in"+users.getUsersEmail());
+		logger.info("UsersServcice ===> in"+users.getUsersPassword());
+		return null;
 	}
 
 	

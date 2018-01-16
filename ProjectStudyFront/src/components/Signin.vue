@@ -6,7 +6,7 @@
     <main>
       <md-field>
         <label>아이디</label>
-        <md-input v-model="id"></md-input>
+        <md-input v-model="email"></md-input>
       </md-field>
 
       <md-field :md-toggle-password="false">
@@ -33,7 +33,7 @@ export default {
     return {
       title: 'Project Study 스터디로 공부하자',
       email: 'model9960@naver.com',
-      password: '9960',
+      password: 'yong9960',
       alert: false, // 로그인 실패 시
     };
   },
@@ -42,13 +42,13 @@ export default {
     login() {
       // this.$router.push({ path: 'Main' });
       this.axios.post('http://localhost:8081/projectStudy/signin/', {
-        email: this.usersEmail,
-        password: this.usersPassword,
+        usersEmail: this.email,
+        usersPassword: this.password,
       })
       .then((res) => {
         if (res.data) {
           // console.log(res);
-          this.$router.push({ path: 'Main' });
+          this.$router.push({ path: 'StudyMain' });
         } else {
           // console.log('null');
           this.alert = true;
