@@ -1,14 +1,12 @@
 <template>
-  <div class="container">
-    <a class="navbar-item" href="#page-top" @click="scrollIntoView">공부하자 얘들아</a>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-  </div>
   <div class="page-container md-layout-column">
-    <md-toolbar class="md-primary">
+    <md-toolbar class="md-accent">
       <md-button class="md-icon-button" @click="showNavigation = true">
         <md-icon>menu</md-icon>
       </md-button>
-      <span class="md-title">MJU System </span>
+      <md-button>
+        <span class="md-title" @click="routeMain()">공부하자 얘들아</span>
+      </md-button>
     </md-toolbar>
 
     <md-drawer :md-active.sync="showNavigation">
@@ -17,24 +15,24 @@
       </md-toolbar>
 
       <md-list>
-        <md-list-item :class="$style.listItem " @click="routeEmployee()">
+        <md-list-item :class="$style.listItem " @click="routeStudyProject()">
           <md-icon>account_box</md-icon>
-          <span class="md-list-item-text">직원 리스트</span>
+          <span class="md-list-item-text">모임 리스트</span>
         </md-list-item>
 
         <md-list-item :class="$style.listItem" @click="routeProject()">
           <md-icon>description</md-icon>
-          <span class="md-list-item-text">프로젝트 리스트</span>
+          <span class="md-list-item-text">기능 추가</span>
         </md-list-item>
 
         <md-list-item :class="$style.listItem" @click="routeInput()">
           <md-icon>work</md-icon>
-          <span class="md-list-item-text">투입 중 직원 보기</span>
+          <span class="md-list-item-text">기능 추가</span>
         </md-list-item>
 
         <md-list-item :class="$style.listItem" @click="routeEvaluation()">
           <md-icon>assessment</md-icon>
-          <span class="md-list-item-text">직원 평점 보기</span>
+          <span class="md-list-item-text">기능 추가</span>
         </md-list-item>
       </md-list>
     </md-drawer>
@@ -51,20 +49,24 @@ const Component = {
   },
 
   methods: {
+    routeMain() {
+      this.$router.push({ path: '/' });
+    },
+
+    routeStudyProject() {
+      this.$router.push({ path: 'studymain' });
+    },
+
     routeInput() {
-      this.$router.push({ name: 'Input' });
+      this.$router.push({ path: 'Input' });
     },
 
     routeEvaluation() {
-      this.$router.push({ name: 'Evaluation' });
-    },
-
-    routeEmployee() {
-      this.$router.push({ name: 'EmployeeList' });
+      this.$router.push({ path: 'Evaluation' });
     },
 
     routeProject() {
-      this.$router.push({ name: 'ProjectList' });
+      this.$router.push({ path: 'ProjectList' });
     },
   },
 };
