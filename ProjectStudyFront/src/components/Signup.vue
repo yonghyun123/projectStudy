@@ -108,16 +108,13 @@
       },
       saveUser() {
         this.sending = true;
-
         // Instead of this timeout, here you can call your API
         window.setTimeout(() => {
-
-        }, 1000);
-        this.axios.post('http://localhost:8081/projectStudy/signup/', {
-          usersName: this.form.name,
-          usersEmail: this.form.email,
-          usersPassword: this.form.password,
-        })
+          this.axios.post('http://localhost:8081/projectStudy/signup/', {
+            usersName: this.form.name,
+            usersEmail: this.form.email,
+            usersPassword: this.form.password,
+          })
         .then((res) => {
           if (res.data) {
             this.clearForm();
@@ -125,9 +122,14 @@
           } else {
             this.lastUser = `${this.form.name} `;
             this.userSaved = true;
+            this.sending = false;
+            window.setTimeout(() => {
+              this.$router.push('Signin');
+            }, 1000);
           }
+          this.sending = false;
         });
-        this.sending = false;
+        }, 1000);
       },
       validateUser() {
         this.$v.$touch();

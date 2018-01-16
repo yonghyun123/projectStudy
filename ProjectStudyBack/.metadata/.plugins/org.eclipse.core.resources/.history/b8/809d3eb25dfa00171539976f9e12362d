@@ -23,11 +23,12 @@ public class UsersDao {
 	public Users signupUsers(Users user){
 		Users checkEmail = new Users();
 		checkEmail = getUsers(user.getUsersEmail());
+		
+		this.sqlSession.insert(NAMESPACE + "signupUsers", user);
 		if(checkEmail != null){
 			return checkEmail;
 		}
 		else{
-			this.sqlSession.insert(NAMESPACE + "signupUsers", user);
 			return null;
 		}
 		
