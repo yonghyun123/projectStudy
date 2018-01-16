@@ -1,9 +1,9 @@
 <template>
 <body id="page-top">
     <!-- Navigation -->
-    <b-nav v-b-scrollspy:nav-scroller class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <b-nav v-b-scrollspy:nav-scroller class="navbar navbar-expand-lg navbar-dark fixed-top">
       <div class="container">
-        <a class="navbar-item" href="#page-top" @click="scrollIntoView">공부하자 얘들아</a>
+        <a class="navbar-item text-light" href="#page-top" @click="scrollIntoView">공부하자 얘들아</a>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -77,7 +77,7 @@
       </section>
     </b-card-body>
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
       </div>
@@ -120,5 +120,11 @@ section#contact{
 }
 section#main{
   padding: 200px 0;
+}
+.navbar {
+  background-color: #ff5252;
+}
+.py-5 {
+  background-color: #ff5252;
 }
 </style>

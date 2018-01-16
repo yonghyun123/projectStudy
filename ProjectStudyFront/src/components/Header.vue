@@ -1,4 +1,8 @@
 <template>
+  <div class="container">
+    <a class="navbar-item" href="#page-top" @click="scrollIntoView">공부하자 얘들아</a>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+  </div>
   <div class="page-container md-layout-column">
     <md-toolbar class="md-primary">
       <md-button class="md-icon-button" @click="showNavigation = true">
