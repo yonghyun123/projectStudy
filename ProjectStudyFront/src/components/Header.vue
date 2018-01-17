@@ -54,7 +54,7 @@ const Component = {
     },
 
     routeStudyProject() {
-      this.$router.push({ path: 'studymain' });
+      this.$router.push({ path: '/studymain' });
     },
 
     routeInput() {
