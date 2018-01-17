@@ -78,7 +78,17 @@ export default {
     display: inline-block;
     vertical-align: top;
   }
- .md-card-media img {
-   height: 250px;
- }
+
+  .md-card-media img {
+    height: 250px;
+  }
+
+  body{
+
+   #loginBtn {
+      width: 100%;
+    }
+
+  }
+
 </style>

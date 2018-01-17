@@ -6,6 +6,7 @@ const Main = () => import('../components/Main');
 const StudyMain = () => import('../components/StudyMain');
 const Signin = () => import('../components/Signin');
 const Signup = () => import('../components/Signup');
+const AddStudy = () => import('../components/AddStudy');
 
 Vue.use(Router);
 
@@ -30,6 +31,12 @@ const routes = [
     name: 'StudyMain',
     component: StudyMain,
   },
+  {
+    path: '/addstudy',
+    name: 'AddStudy',
+    component: AddStudy,
+  },
+
 ];
 
 const router = new Router({

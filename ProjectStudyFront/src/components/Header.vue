@@ -20,9 +20,9 @@
           <span class="md-list-item-text">모임 리스트</span>
         </md-list-item>
 
-        <md-list-item :class="$style.listItem" @click="routeProject()">
+        <md-list-item :class="$style.listItem" @click="routeAddStudy()">
           <md-icon>description</md-icon>
-          <span class="md-list-item-text">기능 추가</span>
+          <span class="md-list-item-text">스터디 추가</span>
         </md-list-item>
 
         <md-list-item :class="$style.listItem" @click="routeInput()">
@@ -57,8 +57,8 @@ const Component = {
       this.$router.push({ path: '/studymain' });
     },
 
-    routeInput() {
-      this.$router.push({ path: 'Input' });
+    routeAddStudy() {
+      this.$router.push({ path: '/addstudy' });
     },
 
     routeEvaluation() {
