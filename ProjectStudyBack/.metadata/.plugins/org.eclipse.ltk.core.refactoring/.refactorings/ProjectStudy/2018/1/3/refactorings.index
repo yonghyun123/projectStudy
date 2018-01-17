@@ -1,6 +1,0 @@
-1516004154570	Rename type 'EmployeeController'
-1516004171366	Rename type 'EmployeeDao'
-1516004186030	Rename type 'Employee'
-1516004195825	Rename type 'EmployeeService'
-1516004207370	Rename type 'EmployeeServiceImpl'
-1516004240096	Rename resource 'employee-mapper.xml'

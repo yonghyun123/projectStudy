@@ -1,8 +1,0 @@
-package com.yonghyun.projectStudy.service;
-
-import com.yonghyun.projectStudy.domain.Users;
-
-public interface UsersService {
-	Users getUsers(int id);
-	Users signupUsers(String usersEmail, String usersPassword, String usersName);
-}
