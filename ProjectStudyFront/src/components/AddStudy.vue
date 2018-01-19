@@ -8,9 +8,7 @@
         <div class="form-group">
        </div>
       
-        <md-button class="btn btn-primary">
-          <i clsss ="fa fa-upload"></i> upload
-        </md-button>
+        <md-button class="btn btn-primary" @click="sendImage">Post</md-button>
         </form>
       </div>
     </div>
@@ -45,16 +43,26 @@
           return;
         }
         reader = new FileReader();
-        reader.onload = (ea) => {
+        reader.onload = (el) => {
           console.log('ddd');
-          this.imagePreview = ea.target.result;
+          this.imagePreview = el.target.result;
         };
         reader.readAsDataURL(files[0]);
+      },
+      sendImage() {
+        const formData = new FormData();
+        formData.append('file', this.imagePreview);
+        // formData.append('name', this.data.name);
+        this.axios.post('http://localhost:8081/projectStudy/test/', {
+          imageData: this.formData,
+        })
+        .then((res) => {
+          console.log(res);
+        });
       },
     },
     components: {
       StudyHeader: Header,
-
     },
   };
 </script>
