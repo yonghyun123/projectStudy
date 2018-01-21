@@ -2,6 +2,8 @@ package com.yonghyun.projectStudy.controller;
 
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.yonghyun.projectStudy.domain.Studies;
 import com.yonghyun.projectStudy.service.StudiesService;
@@ -21,14 +24,21 @@ public class TestImageController {
 	
 	@Autowired
 	StudiesService studiesService;
+	@Resource(name="uploadPath")
+	String uploadPath;
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json; charset=utf8")
-	@ResponseBody Studies imageTest(@RequestBody Map<String, Object> map){
-		logger.info("TestContoller==>"+map.get("imageData"));
-		Studies study = new Studies();
-		String imageData = map.get("imageData").toString();	
-		study.setStudiesImage(imageData);
-		return studiesService.getStudiesImage(study);
+	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "test/plain; charset=utf8")
+	@ResponseBody Studies imageTest(MultipartFile file, Studies study) throws Exception{
+
+        logger.info("파일이름 :"+file.getOriginalFilename());
+        logger.info("파일크기 : "+file.getSize());
+        logger.info("컨텐트 타입 : "+file.getContentType());
 		
+//		Studies study = new Studies();
+//		String imageData = map.get("imageData").toString();	
+		
+//		study.setStudiesImage(imageData);
+//		return studiesService.getStudiesImage(study);
+		return null;
 	}
 }

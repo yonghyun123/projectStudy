@@ -4,12 +4,7 @@
     </study-header>
     <div class="row">
       <div class="col-sm-12">
-        <form method="post" enctype="multipart/form-data">
-        <div class="form-group">
-       </div>
-      
         <md-button class="btn btn-primary" @click="sendImage">Post</md-button>
-        </form>
       </div>
     </div>
      <img :src="imagePreview" class="preview-image" @click="openUpload">
@@ -51,10 +46,13 @@
       },
       sendImage() {
         const formData = new FormData();
-        formData.append('file', this.imagePreview);
+        formData.append('media', this.imagePreview);
         // formData.append('name', this.data.name);
         this.axios.post('http://localhost:8081/projectStudy/test/', {
           imageData: this.formData,
+          dataType: 'text',
+          contentType: 'multipart/form-data',
+          processData: false,
         })
         .then((res) => {
           console.log(res);
