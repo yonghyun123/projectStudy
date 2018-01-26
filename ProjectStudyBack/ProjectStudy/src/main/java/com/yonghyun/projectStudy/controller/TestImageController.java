@@ -28,7 +28,7 @@ public class TestImageController {
 	String uploadPath;
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "test/plain; charset=utf8")
-	@ResponseBody Studies imageTest(MultipartFile file, Studies study) throws Exception{
+	Studies imageTest(MultipartFile file) throws Exception{
 
         logger.info("파일이름 :"+file.getOriginalFilename());
         logger.info("파일크기 : "+file.getSize());

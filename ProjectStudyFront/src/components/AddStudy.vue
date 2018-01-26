@@ -4,7 +4,6 @@
     </study-header>
     <div class="row">
       <div class="col-sm-12">
-        <md-button class="btn btn-primary" @click="sendImage">Post</md-button>
       </div>
     </div>
      <img :src="imagePreview" class="preview-image" @click="openUpload">
@@ -13,7 +12,8 @@
        type="file"
        id="add-study" 
        @change="updatePreview"
-       style="display: none;">
+       style="display: none;"/>
+       <md-button class="btn btn-primary" @click="sendImage">Post</md-button>
   </section>
   
 </template>
@@ -23,6 +23,7 @@
   export default {
     data() {
       return {
+        fileData: null,
         imagePreview: '../../src/assets/logo.png',
       };
     },
@@ -33,27 +34,23 @@
       updatePreview(e) {
         let reader = e.target.files;
         const files = e.target.files;
-
         if (!files) {
           return;
         }
         reader = new FileReader();
         reader.onload = (el) => {
-          console.log('ddd');
           this.imagePreview = el.target.result;
         };
+        this.fileData = files[0];
+        console.log(this.fileData);
         reader.readAsDataURL(files[0]);
       },
-      sendImage() {
+      sendImage(e) {
+        this.imagePreview = e.target.files;
         const formData = new FormData();
-        formData.append('media', this.imagePreview);
-        // formData.append('name', this.data.name);
-        this.axios.post('http://localhost:8081/projectStudy/test/', {
-          imageData: this.formData,
-          dataType: 'text',
-          contentType: 'multipart/form-data',
-          processData: false,
-        })
+        console.log(this.fileData);
+        formData.append('file', this.fileData);
+        this.axios.post('http://localhost:8081/projectStudy/test/', formData)
         .then((res) => {
           console.log(res);
         });
