@@ -28,7 +28,7 @@
 	<!--파일업로드를 위한 디렉토리 설정 -->
 	<!--String uploadPath = new String("업로드 경로")  -->
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="/Users/yonghyun/Desktop/projectStudy/ProjectStudyBack/ProjectStudy/src/main/resources"></beans:constructor-arg>
+		<beans:constructor-arg value="/Users/yonghyun/Desktop/projectStudy/ProjectStudyBack/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ProjectStudy/resources/upload"></beans:constructor-arg>
 	</beans:bean>
 	
 	<context:component-scan base-package="com.yonghyun.projectStudy" />

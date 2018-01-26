@@ -867,6 +867,20 @@
 								"$ref": "AAAAAAFhMYlYawbO5Cc="
 							},
 							"name": "IMG_NAME",
+							"tags": [
+								{
+									"_type": "Tag",
+									"_id": "AAAAAAFhMfaCoQd9hOg=",
+									"_parent": {
+										"$ref": "AAAAAAFhMYu1lgdBcwI="
+									},
+									"name": "Tag1",
+									"kind": "string",
+									"value": "년/월/일 형식으로 들어가있고,\n",
+									"checked": false,
+									"number": 0
+								}
+							],
 							"length": 0,
 							"primaryKey": false,
 							"foreignKey": false,
@@ -880,6 +894,20 @@
 								"$ref": "AAAAAAFhMYlYawbO5Cc="
 							},
 							"name": "IMG_INFO",
+							"tags": [
+								{
+									"_type": "Tag",
+									"_id": "AAAAAAFhMfiJ3weBHDo=",
+									"_parent": {
+										"$ref": "AAAAAAFhMYvr5QdIhuQ="
+									},
+									"name": "Tag1",
+									"kind": "string",
+									"value": "이미지 /년/월/일 전까지 경로",
+									"checked": false,
+									"number": 0
+								}
+							],
 							"length": 0,
 							"primaryKey": false,
 							"foreignKey": false,

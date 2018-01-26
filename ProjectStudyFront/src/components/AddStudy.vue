@@ -45,8 +45,7 @@
         console.log(this.fileData);
         reader.readAsDataURL(files[0]);
       },
-      sendImage(e) {
-        this.imagePreview = e.target.files;
+      sendImage() {
         const formData = new FormData();
         console.log(this.fileData);
         formData.append('file', this.fileData);

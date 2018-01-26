@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.yonghyun.projectStudy.domain.Studies;
 import com.yonghyun.projectStudy.service.StudiesService;
+import com.yonghyun.projectStudy.utils.UploadFileUtils;
 
 @Controller
 @RequestMapping("test")
@@ -36,13 +37,11 @@ public class TestImageController {
         String root_path = request.getSession().getServletContext().getRealPath("/");
         String attach_path = "resources/upload/";
         logger.info("실제경로 : "+root_path + attach_path);
+        logger.info("servlet-context에 등록된 경로: "+uploadPath);
         
-        File f = new File(root_path + attach_path + file.getOriginalFilename());
-        try{
-        	file.transferTo(f);
-        }catch(Exception e){
-        	System.out.println(e.getMessage());
-        }
+        UploadFileUtils.setWIDTH_SIZE(200);
+        String uploadFiles = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+        logger.info("after file save - , {} ", uploadFiles);
 		return null;
 	}
 }
