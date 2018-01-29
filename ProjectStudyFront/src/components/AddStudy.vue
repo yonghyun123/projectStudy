@@ -13,6 +13,7 @@
        id="add-study" 
        @change="updatePreview"
        style="display: none;"/>
+       <input name="email" type="text" v-model="userEmail"/>
        <md-button class="btn btn-primary" @click="sendImage">Post</md-button>
   </section>
   
@@ -25,6 +26,7 @@
       return {
         fileData: null,
         imagePreview: '../../src/assets/logo.png',
+        userEmail: 'model9960@naver.com',
       };
     },
     methods: {
@@ -49,6 +51,7 @@
         const formData = new FormData();
         console.log(this.fileData);
         formData.append('file', this.fileData);
+        formData.append('email', this.userEmail);
         this.axios.post('http://localhost:8081/projectStudy/test/', formData)
         .then((res) => {
           console.log(res);
