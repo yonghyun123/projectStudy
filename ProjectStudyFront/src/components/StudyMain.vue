@@ -4,14 +4,14 @@
     <main>
       <body>
       <div class="card-expansion">
-      <md-card v-for="item in items" :key="item">
+      <md-card v-for="item in items" :key="item.length">
         <md-card-media>
-          <img :src="items.picture">
+          <img :src="item.imgFull">
         </md-card-media>
 
         <md-card-header >
-          <div class="md-title">{{ items.title }}</div>
-          <div class="md-subhead"> {{ items.subttitle }}</div>
+          <div class="md-title">{{ item.usersEmail }}</div>
+          <div class="md-subhead"> {{ item.imgName }}</div>
         </md-card-header>
 
         <md-card-expand>
@@ -47,15 +47,28 @@ const Header = () => import('../components/Header');
 
 export default {
   name: 'StudyMain',
-  data: () => ({
-    items: {
-      title: null,
-      subtitle: null,
-      picture: '../../src/assets/logo.png',
-    },
-  }),
+  data() {
+    return {
+      items: [
+        {
+          usersEmail: null,
+          imgName: null,
+          imgFull: 'http://localhost:8081/projectStudy/study/',
+        },
+      ],
+    };
+  },
   components: {
     studyHeader: Header,
+  },
+  mounted() {
+    this.axios.get('http://localhost:8081/projectStudy/study/')
+    .then((res) => {
+      // this.items = res.data;
+      console.log(res.data);
+      // console.log(this.items[0].usersName);
+      // console.log(this.items[0].imgFull);
+    });
   },
   methods: {
 

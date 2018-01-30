@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yonghyun.projectStudy.mapper.StudyMapper">
+   <insert id="addStudies" parameterType="com.yonghyun.projectStudy.domain.Studies">
+   	  INSERT INTO img (users_email, img_name, img_path, img_full)
+   	  values(#{usersEmail}, #{imgName}, #{imgPath}, #{imgFull});
+   </insert>
+   <select id="getAllStudies" resultType="com.yonghyun.projectStudy.domain.Studies">
+   	  SELECT * FROM img;
+   </select>
+ </mapper>
+   

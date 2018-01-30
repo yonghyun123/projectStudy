@@ -39,7 +39,15 @@ public class TestImageController {
         
         UploadFileUtils.setWIDTH_SIZE(200);
         String uploadFiles = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+        String imagePath = uploadPath + uploadFiles;
         logger.info("after file save - , {} ", uploadFiles);
-		return null;
+        
+        Studies study = new Studies();
+        study.setUsersEmail(request.getParameter("email"));
+        study.setImgName(uploadFiles);
+        study.setImgPath(uploadPath);
+        study.setImgFull(imagePath);
+        
+		return studiesService.addStudies(study);
 	}
 }

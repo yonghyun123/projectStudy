@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class Studies {
-	String studiesId;
+//	String studiesId;
 	String usersEmail;
-	String studiesStartDate;
-	String studiesEndDate;
-	String studiesImage;
+	String imgName;
+	String imgPath;
+	String imgFull;
 }

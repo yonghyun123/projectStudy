@@ -23,9 +23,11 @@ public class UsersDao {
 	public Users signupUsers(Users user){
 		Users checkEmail = new Users();
 		checkEmail = getUsers(user.getUsersEmail());
+		// 이미 같은 email을 사용하는 user가 있으면 
 		if(checkEmail != null){
 			return checkEmail;
 		}
+		// 아니면 db에 회원가입 폼을 입력시킨다.
 		else{
 			this.sqlSession.insert(NAMESPACE + "signupUsers", user);
 			return null;
