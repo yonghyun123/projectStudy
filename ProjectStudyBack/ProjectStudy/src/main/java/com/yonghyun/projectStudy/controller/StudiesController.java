@@ -32,8 +32,9 @@ public class StudiesController {
 	@RequestMapping(value = "")
 	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception{
 	    UploadFileDisplay display=UploadFileDisplay.getInstance();
-	    String harName = "/2018/01/29/s_1fab02b7-2079-4646-896c-e9fddb5e49a6_5.jpg";
+	    String harName = "/2018/01/30/s_0879d9e1-a050-449b-a9c1-3b5960dc36da_1.jpg";
 	    logger.info("StudiesController ==>"+harName);
+	    logger.info("StudiesController ==>"+uploadPath);
 	    return display.disPlay(harName, uploadPath);
 	}
 }
