@@ -53,7 +53,7 @@ export default {
         {
           usersEmail: null,
           imgName: null,
-          imgFull: 'http://localhost:8081/projectStudy/study/',
+          imgFull: '../../src/assets/s_bb6a9a84-687b-4049-9da7-6c3f31fb4e0d_6.jpg',
         },
       ],
     };
@@ -61,15 +61,15 @@ export default {
   components: {
     studyHeader: Header,
   },
-  mounted() {
-    this.axios.get('http://localhost:8081/projectStudy/study/')
-    .then((res) => {
-      // this.items = res.data;
-      console.log(res.data);
-      // console.log(this.items[0].usersName);
-      // console.log(this.items[0].imgFull);
-    });
-  },
+  // mounted() {
+  //   this.axios.get('http://localhost:8081/projectStudy/study/')
+  //   .then((res) => {
+  //     // this.items = res.data;
+  //     console.log(res.data);
+  //     // console.log(this.items[0].usersName);
+  //     // console.log(this.items[0].imgFull);
+  //   });
+  // },
   methods: {
 
   },

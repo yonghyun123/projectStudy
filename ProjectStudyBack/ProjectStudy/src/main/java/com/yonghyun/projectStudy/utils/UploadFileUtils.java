@@ -30,11 +30,9 @@ public class UploadFileUtils {
 		UUID uid =UUID.randomUUID();
 	    String savedName=uid.toString()+"_"+originalName;
 	      
-	    //★ 2. 년/월/일' 정보 생성
-	    String savedPath=calcPath(uploadPath);
 	      
 	    //★ 3. 원본파일 저장
-	    File target =new File(uploadPath+savedPath, savedName);
+	    File target =new File(uploadPath, savedName);
 	    FileCopyUtils.copy(fileData, target);
 	         
 	    //★ 4. 이미지 일경우 썸네일 이미지 생성 후 url 주소로 반환
@@ -43,21 +41,22 @@ public class UploadFileUtils {
 	       
 	    if(MediaUtils.getMediaType(formatName)!=null){
 	        //이미지일 경우 썸네일 생성 후 이미지 이름 반환 ( 경로+년월일+s_이름)
-	        uploadedFileName=makeThumbnail(uploadPath, savedPath, savedName);
+	        uploadedFileName=makeThumbnail(uploadPath, savedName);
 	    }else{
-	        uploadedFileName=makeIcon(uploadPath, savedPath, savedName);
+	        uploadedFileName=makeIcon(uploadPath, savedName);
 	    }        
 	    // 파일 경로를  -> url 경로로 변경해서 반환
 	    return uploadedFileName;  
 	}
     // 이미지가 아닐경우  단지 파일 경로를 -> url 경로로 변경해서 반환
-    private static String makeIcon(String uploadPath, String savedPath, String savedName) {
-        String iconName=uploadPath+savedPath+File.separator+savedName;
+    private static String makeIcon(String uploadPath, String savedName) {
+        String iconName=uploadPath+File.separator+savedName;
         return iconName.substring(uploadPath.length()).replace(File.separatorChar, '/');
     }
  
  
     //파일이 저장될  '년/월/일' 정보 생성
+    /*
     private static String calcPath(String uploadPath){  
         Calendar cal =Calendar.getInstance();
         // 역슬래시 + 2017
@@ -76,9 +75,11 @@ public class UploadFileUtils {
          
         return datePath;
     }
+    */
  
      
     // 실질 적인 날짜 폴더 생성
+    /*
     private static void makeDir(String uploadPath, String... paths){    
         if(new File(paths[paths.length-1]).exists()){
             //년 월 일 에서 일 배열 paths 에서 paths -1 은 일  즉 해당일의 폴더가 존재하면 return
@@ -94,19 +95,20 @@ public class UploadFileUtils {
         }
          
     }
+    */
      
     //썸네일 이미지 생성하기
     // 1.파일 경로 2. 년월일 경로, 3. 파일 이름 
-    private static String makeThumbnail(String uploadPath, String path, String fileName) throws Exception{
+    private static String makeThumbnail(String uploadPath, String fileName) throws Exception{
         // 파일 존재하는 이미지를 메모리상 이미지에 올려 붙인다. 즉 메모리에 로딩시킨다.
-        BufferedImage sourceImg= ImageIO.read(new File(uploadPath+path, fileName));
+        BufferedImage sourceImg= ImageIO.read(new File(uploadPath, fileName));
          
         //메모리상 이미지를 정해진 크기에 맞게 복사한다.
         BufferedImage destImage=Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC,
                 Scalr.Mode.FIT_TO_HEIGHT, WIDTH_SIZE);
          
         //썸네일 이미지 이름을 정한다. 썸네일 이미지를 앞에 s_ 붙인다.
-        String thumbnailName=uploadPath+path+File.separator+"s_"+fileName;
+        String thumbnailName=uploadPath+File.separator+"s_"+fileName;
          
         // 파일 경로의 객체를 생성한다.
         File newFile=new File(thumbnailName);

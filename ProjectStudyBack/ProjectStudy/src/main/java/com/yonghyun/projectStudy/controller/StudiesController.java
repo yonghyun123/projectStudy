@@ -25,16 +25,16 @@ public class StudiesController {
 	@Resource(name="uploadPath")
 	String uploadPath;
 	
-//	@RequestMapping(value = "")
-//	public @ResponseBody List<Studies> getAllStudies(){
-//		return studiesService.getAllStudies();
-//	}
 	@RequestMapping(value = "")
-	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception{
-	    UploadFileDisplay display=UploadFileDisplay.getInstance();
-	    String harName = "/2018/01/30/s_0879d9e1-a050-449b-a9c1-3b5960dc36da_1.jpg";
-	    logger.info("StudiesController ==>"+harName);
-	    logger.info("StudiesController ==>"+uploadPath);
-	    return display.disPlay(harName, uploadPath);
+	public @ResponseBody List<Studies> getAllStudies(){
+		return studiesService.getAllStudies();
 	}
+//	@RequestMapping(value = "")
+//	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception{
+//	    UploadFileDisplay display=UploadFileDisplay.getInstance();
+//	    String harName = "/2018/01/30/s_0879d9e1-a050-449b-a9c1-3b5960dc36da_1.jpg";
+//	    logger.info("StudiesController ==>"+harName);
+//	    logger.info("StudiesController ==>"+uploadPath);
+//	    return display.disPlay(harName, uploadPath);
+//	}
 }
