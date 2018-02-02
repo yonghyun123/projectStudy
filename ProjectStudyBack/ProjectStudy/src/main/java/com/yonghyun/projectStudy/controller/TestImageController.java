@@ -28,25 +28,19 @@ public class TestImageController {
 	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json; charset=utf8")
 	Studies imageTest(MultipartFile file, MultipartHttpServletRequest request) throws Exception{
         logger.info("파일이름 :"+file.getOriginalFilename());
-        logger.info("파일크기 : "+file.getSize());
-        logger.info("컨텐트 타입 : "+file.getContentType());
         logger.info("email:" + request.getParameter("email"));
         
         String root_path = request.getSession().getServletContext().getRealPath("/");
-        String attach_path = "resources/upload/";
-        logger.info("실제경로 : "+root_path + attach_path);
+        logger.info("실제경로 : "+root_path);
         logger.info("servlet-context에 등록된 경로: "+uploadPath);
         
         UploadFileUtils.setWIDTH_SIZE(200);
         String uploadFiles = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
-        String imagePath = uploadPath + uploadFiles;
-        logger.info("after file save - , {} ", uploadFiles);
+        logger.info("after file save -"+uploadFiles);
         
         Studies study = new Studies();
         study.setUsersEmail(request.getParameter("email"));
         study.setImgName(uploadFiles);
-        study.setImgPath(uploadPath);
-        study.setImgFull(imagePath);
         
 		return studiesService.addStudies(study);
 	}

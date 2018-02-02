@@ -22,8 +22,6 @@ public class StudiesServiceImpl implements StudiesService{
 		
 		logger.info("StudiesService ==>" + study.getUsersEmail());
 		logger.info("StudiesService ==>" + study.getImgName());
-		logger.info("StudiesService ==>" + study.getImgPath());
-		logger.info("StudiesService ==>" + study.getImgFull());
 		// TODO Auto-generated method stub
 		return studiesDao.addStudies(study);
 	}

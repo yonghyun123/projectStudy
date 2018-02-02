@@ -12,15 +12,17 @@ import com.yonghyun.projectStudy.domain.Studies;
 
 @Repository
 public class StudiesDao {
-	private final String NAMESPACE = "com.yonghyun.projectStudy.mapper.StudyMapper.";
-	private static final Logger logger = LoggerFactory.getLogger(UsersDao.class);
+	private final String NAMESPACE = "com.yonghyun.projectStudy.mapper.StudiesMapper.";
+	private static final Logger logger = LoggerFactory.getLogger(StudiesDao.class);
 	
 	@Autowired
 	SqlSessionTemplate sqlSession;
 	public Studies addStudies(Studies study){
 		// 프로젝트(스터디)를 추가시킨다.
-		this.sqlSession.insert(NAMESPACE + "addStudies" + study);
-		return study;
+		logger.info("StudiesDao===>"+study.getUsersEmail());
+		logger.info("StudiesDao===>"+study.getImgName());
+		this.sqlSession.insert(NAMESPACE + "add", study);
+		return null;
 	}
 	public List<Studies> getAllStudies(){
 		return this.sqlSession.selectList(NAMESPACE + "getAllStudies");
