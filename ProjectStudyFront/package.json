@@ -16,6 +16,7 @@
     "bootstrap-vue": "^1.4.0",
     "chart.js": "^2.7.1",
     "jquery": "^3.2.1",
+    "package-lock.json": "^1.0.0",
     "vue": "^2.5.2",
     "vue-axios": "^2.0.2",
     "vue-form-generator": "^2.1.1",
